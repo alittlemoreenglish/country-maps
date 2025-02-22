@@ -1,0 +1,108 @@
+body {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  background-image: url('https://alittlemoreenglish.weebly.com/uploads/2/6/6/3/26638990/untitled-design-8_orig.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+#map-container {
+  margin: 20px auto;
+  max-width: 400px;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+#country-map {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Ensure image is displayed at full opacity */
+#country-map image {
+  transition: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  #map-container {
+    max-width: 95%;
+    margin: 10px auto;
+  }
+}
+#options-container {
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}
+
+#message {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+#score {
+  font-size: 1.2em;
+}
+
+footer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.8em;
+  color: #555;
+}
+
+/* Styles for the timer */
+#timer {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Styles for the result page */
+#result-page {
+  display: none;
+}
+
+#medal {
+  width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+}
