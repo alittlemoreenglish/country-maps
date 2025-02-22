@@ -10,6 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const resultPage = document.getElementById('result-page');
   const finalScoreSpan = document.getElementById('final-score');
   const medalImage = document.getElementById('medal');
+  const MEDAL_URLS = {
+  gold: 'https://alittlemoreenglish.weebly.com/uploads/2/6/6/3/26638990/gold-medal_orig.png',
+  silver: 'https://alittlemoreenglish.weebly.com/uploads/2/6/6/3/26638990/silver-medal_orig.png',
+  bronze: 'https://alittlemoreenglish.weebly.com/uploads/2/6/6/3/26638990/bronze-medal-orig_orig.jpg'
+};
 
   let score = 0;
   let countriesData;
@@ -408,22 +413,15 @@ function pickRandomCountry() {
     messageDiv.textContent = '';
   }
 
-  // Function to update the timer display
+
   function updateTimerDisplay() {
     const minutes = Math.floor(timeLeft / 60);
     const seconds = timeLeft % 60;
     timerDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
   }
 
-  // Function to end the game
-// Add these constants at the top of your script file
-const MEDAL_URLS = {
-  gold: 'https://alittlemoreenglish.weebly.com/uploads/2/6/6/3/26638990/gold-medal_orig.png',
-  silver: 'https://alittlemoreenglish.weebly.com/uploads/2/6/6/3/26638990/silver-medal_orig.png',
-  bronze: 'https://alittlemoreenglish.weebly.com/uploads/2/6/6/3/26638990/bronze-medal-orig_orig.jpg'
-};
 
-// Add this helper function to verify image URLs
+
 function verifyImageUrl(url) {
   return new Promise((resolve, reject) => {
     const img = new Image();
