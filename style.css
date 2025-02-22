@@ -97,21 +97,12 @@ footer {
 }
 
 /* Styles for the result page */
-#result-page p {
-  font-size: 1.5em;
-  font-weight: bold;
-  margin: 20px 0;
-  color: #333;
+#result-page {
+  display: none;
 }
 
 #medal {
   width: 100px;
-  height: 100px;
-  object-fit: contain;
-  margin: 20px auto;
-  display: block;
-}
-
-#medal[src=""] {
-  display: none;
+  height: auto;
+  margin-bottom: 10px;
 }
