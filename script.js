@@ -416,23 +416,59 @@ function pickRandomCountry() {
   }
 
   // Function to end the game
-  function endGame() {
-    clearInterval(timerInterval);
-    quizPage.style.display = 'none';
-    resultPage.style.display = 'block';
-    finalScoreSpan.textContent = score;
+// Add these constants at the top of your script file
+const MEDAL_URLS = {
+  gold: 'https://alittlemoreenglish.weebly.com/uploads/2/6/6/3/26638990/gold-medal_orig.png',
+  silver: 'https://alittlemoreenglish.weebly.com/uploads/2/6/6/3/26638990/silver-medal_orig.png',
+  bronze: 'https://alittlemoreenglish.weebly.com/uploads/2/6/6/3/26638990/bronze-medal_orig.png'
+};
 
+// Add this helper function to verify image URLs
+function verifyImageUrl(url) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(url);
+    img.onerror = () => reject(new Error(`Failed to load image: ${url}`));
+    img.src = url;
+  });
+}
+
+// Updated endGame function with proper image handling
+async function endGame() {
+  clearInterval(timerInterval);
+  quizPage.style.display = 'none';
+  resultPage.style.display = 'block';
+  finalScoreSpan.textContent = score;
+  
+  // First, clear the current medal
+  medalImage.src = '';
+  
+  try {
     if (score >= 20) {
-      medalImage.src = 'https://alittlemoreenglish.weebly.com/uploads/2/6/6/3/26638990/gold-medal_orig.png';
+      const goldUrl = await verifyImageUrl(MEDAL_URLS.gold);
+      medalImage.src = goldUrl;
+      medalImage.alt = 'Gold Medal';
     } else if (score >= 16) {
-      medalImage.src = 'https://alittlemoreenglish.weebly.com/uploads/2/6/6/3/26638990/silver-medal_orig.png';
+      const silverUrl = await verifyImageUrl(MEDAL_URLS.silver);
+      medalImage.src = silverUrl;
+      medalImage.alt = 'Silver Medal';
     } else if (score >= 12) {
-      medalImage.src = 'https://alittlemoreenglish.weebly.com/uploads/2/6/6/3/26638990/bronze-medal_orig.png';
-    } else {
-      medalImage.src = ''; // No medal
+      const bronzeUrl = await verifyImageUrl(MEDAL_URLS.bronze);
+      medalImage.src = bronzeUrl;
+      medalImage.alt = 'Bronze Medal';
     }
+  } catch (error) {
+    console.error('Error loading medal image:', error);
+    // Fallback to text if image fails to load
+    medalImage.style.display = 'none';
+    const medalText = document.createElement('p');
+    medalText.textContent = score >= 20 ? '🥇 Gold Medal!' : 
+                          score >= 16 ? '🥈 Silver Medal!' :
+                          score >= 12 ? '🥉 Bronze Medal!' : 
+                          'Keep practicing!';
+    medalImage.parentNode.insertBefore(medalText, medalImage.nextSibling);
   }
-
+}
   // Timer function
   function startTimer() {
     timerInterval = setInterval(() => {
