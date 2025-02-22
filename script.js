@@ -422,11 +422,11 @@ function pickRandomCountry() {
     resultPage.style.display = 'block';
     finalScoreSpan.textContent = score;
 
-    if (score >= 26) {
+    if (score >= 20) {
       medalImage.src = 'https://alittlemoreenglish.weebly.com/uploads/2/6/6/3/26638990/gold-medal_orig.png';
-    } else if (score >= 21) {
+    } else if (score >= 16) {
       medalImage.src = 'https://alittlemoreenglish.weebly.com/uploads/2/6/6/3/26638990/silver-medal_orig.png';
-    } else if (score >= 15) {
+    } else if (score >= 12) {
       medalImage.src = 'https://alittlemoreenglish.weebly.com/uploads/2/6/6/3/26638990/bronze-medal_orig.png';
     } else {
       medalImage.src = ''; // No medal
