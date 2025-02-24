@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const MEDAL_URLS = {
   gold: 'https://alittlemoreenglish.weebly.com/uploads/2/6/6/3/26638990/gold-medal_orig.png',
   silver: 'https://alittlemoreenglish.weebly.com/uploads/2/6/6/3/26638990/silver-medal_orig.png',
-  bronze: 'https://alittlemoreenglish.weebly.com/uploads/2/6/6/3/26638990/bronze-medal-orig_orig.jpg'
+  bronze: 'bronze-medal.png'
   };
 
   let score = 0;
