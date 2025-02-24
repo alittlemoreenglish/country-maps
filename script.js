@@ -310,7 +310,7 @@ function pickRandomCountry() {
   if (unusedCountries.length === 0) {
     unusedCountries = [...usedCountries];
     usedCountries = [];
-    console.log('All countries have been shown - resetting pool');
+    console.log('😓All countries have been shown - resetting pool');
   }
   
   // Pick a random country from unused pool
@@ -360,12 +360,12 @@ function pickRandomCountry() {
   // Function to check if the guess is correct
   function checkGuess(selectedCountry) {
     if (!currentCountry) {
-      messageDiv.textContent = 'No country to guess. Please wait...';
+      messageDiv.textContent = '😓No country to guess. Please wait...';
       return;
     }
 
     if (selectedCountry.id === currentCountry.id) {
-      messageDiv.textContent = 'Correct!';
+      messageDiv.textContent = 'Correct! 👍';
       score++;
       scoreValueSpan.textContent = score;
 
@@ -373,12 +373,12 @@ function pickRandomCountry() {
       if (currentCountry.properties && currentCountry.properties.image) {
         console.log(`Country: ${currentCountry.properties.name}, Image URL: ${currentCountry.properties.image}`);
       } else {
-        console.log(`Country: ${currentCountry.properties.name}, No image URL available`);
+        console.log(`Country: ${currentCountry.properties.name}, No image URL available😓`);
       }
 
       setTimeout(newRound, 1000);
     } else {
-      messageDiv.textContent = `Incorrect. The correct answer was ${currentCountry.properties.name}.`;
+      messageDiv.textContent = `Incorrect. 😔 The correct answer was ${currentCountry.properties.name}.`;
       // Find the button that was clicked and change its color to red
       const buttons = optionsContainer.querySelectorAll('button');
       buttons.forEach(button => {
@@ -452,7 +452,7 @@ async function endGame() {
       medalImage.alt = 'Silver Medal';
     } else if (score >= 12) {
       const bronzeUrl = await verifyImageUrl(MEDAL_URLS.bronze);
-      medalImage.src = bronzeUrl;
+      medalImage.src = "bronze-medal.png";
       medalImage.alt = 'Bronze Medal';
     }
   } catch (error) {
