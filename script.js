@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const MEDAL_URLS = {
   gold: 'https://alittlemoreenglish.weebly.com/uploads/2/6/6/3/26638990/gold-medal_orig.png',
   silver: 'https://alittlemoreenglish.weebly.com/uploads/2/6/6/3/26638990/silver-medal_orig.png',
-  bronze: 'bronze-medal.png'
+  bronze: 'bronze-medal.png',
+  nice: 'nice-try.png'
   };
 
   let score = 0;
@@ -454,6 +455,10 @@ async function endGame() {
       const bronzeUrl = await verifyImageUrl(MEDAL_URLS.bronze);
       medalImage.src = "bronze-medal.png";
       medalImage.alt = 'Bronze Medal';
+    } else {
+      const defaultUrl = await verifyImageUrl(MEDAL_URLS.nice);
+      medalImage.src = "nice-try.png";
+      medalImage.alt = 'Nice Try';
     }
   } catch (error) {
     console.error('Error loading medal image:', error);
